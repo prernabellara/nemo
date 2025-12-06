@@ -1,0 +1,19 @@
+name: "gpt_finetune_example"
+
+model:
+  micro_batch_size: 2
+  global_batch_size: 16
+  max_sequence_length: 512
+  tokenizer:
+    library: huggingface
+    type: gpt2
+
+  train_ds:
+    file_path: data/sample.txt
+    batch_size: 32
+    shuffle: true
+
+trainer:
+  devices: 1
+  accelerator: gpu
+  max_epochs: 1
